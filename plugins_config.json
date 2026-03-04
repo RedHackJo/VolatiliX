@@ -1,0 +1,68 @@
+{
+  "volatility_2": {
+    "basic": [
+      "pslist",
+      "netscan",
+      "connscan",
+      "cmdline"
+    ],
+    "most": [
+      "pslist",
+      "netscan",
+      "connscan",
+      "cmdline",
+      "psscan",
+      "pstree",
+      "psxview --apply-rules",
+      "consoles",
+      "userassist",
+      "autoruns",
+      "svcscan"
+    ],
+    "all": [
+      "pslist",
+      "netscan",
+      "connscan",
+      "cmdline",
+      "psscan",
+      "pstree",
+      "psxview --apply-rules",
+      "consoles",
+      "userassist",
+      "autoruns",
+      "svcscan",
+      "hivelist",
+      "hivescan",
+      "ldrmodules",
+      "hollowfind",
+      "apihooks"
+    ]
+  },
+  "volatility_3": {
+    "basic": [
+      "windows.pslist.PsList",
+      "windows.netscan.NetScan",
+      "windows.cmdline.CmdLine"
+    ],
+    "most": [
+      "windows.pslist.PsList",
+      "windows.netscan.NetScan",
+      "windows.cmdline.CmdLine",
+      "windows.psscan.PsScan",
+      "windows.pstree.PsTree",
+      "windows.registry.userassist.UserAssist",
+      "windows.svcscan.SvcScan"
+    ],
+    "all": [
+      "windows.pslist.PsList",
+      "windows.netscan.NetScan",
+      "windows.cmdline.CmdLine",
+      "windows.psscan.PsScan",
+      "windows.pstree.PsTree",
+      "windows.registry.userassist.UserAssist",
+      "windows.svcscan.SvcScan",
+      "windows.registry.hivelist.HiveList",
+      "windows.malfind.Malfind"
+    ]
+  }
+}
