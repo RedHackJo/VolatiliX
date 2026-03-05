@@ -6,6 +6,7 @@ import json
 import platform
 import re
 import glob
+import tempfile
 
 try:
     raw_input
@@ -13,7 +14,7 @@ except NameError:
     raw_input = input
 
 CONFIG_FILE = 'plugins_config.json'
-STATE_FILE = 'dump_state.json'
+STATE_FILE = os.path.join(tempfile.gettempdir(), 'volatilix2_dump_state.json')
 RESULTS_DIR = os.path.join(os.path.expanduser("~"), "VolatiliX_Results")
 
 def print_banner():
