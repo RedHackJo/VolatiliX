@@ -7,6 +7,11 @@ import platform
 import re
 import glob
 
+try:
+    raw_input
+except NameError:
+    raw_input = input
+
 CONFIG_FILE = 'plugins_config.json'
 STATE_FILE = 'dump_state.json'
 RESULTS_DIR = os.path.join(os.path.expanduser("~"), "VolatiliX_Results")
@@ -62,9 +67,14 @@ def check_python_env():
         ]
         
         for p in paths_to_check:
-            if os.path.exists(p) and "2.7" in subprocess.check_output([p, "-V"], stderr=subprocess.STDOUT):
-                print("[+] Python 2 detected at: {0}".format(p))
-                return p
+            if os.path.exists(p):
+                try:
+                    output = subprocess.check_output([p, "-V"], stderr=subprocess.STDOUT)
+                    if "2.7" in output.decode('utf-8', 'ignore'):
+                        print("[+] Python 2 detected at: {0}".format(p))
+                        return p
+                except Exception:
+                    pass
                 
         print("[-] Python 2 not detected on the system.")
         install_local_resources()
@@ -143,7 +153,8 @@ def get_profile_vol2(vol_cmd, dump_path, state):
     
     try:
         output = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
-        match = re.search(r'Suggested Profile\(s\) : (.+)', output)
+        output_str = output.decode('utf-8', 'ignore')
+        match = re.search(r'Suggested Profile\(s\) : (.+)', output_str)
         if match:
             best_profile = match.group(1).split(',')[0].strip().split(' ')[0]
             print("[+] Suggested Profile: {0}".format(best_profile))
