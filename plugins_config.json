@@ -37,32 +37,5 @@
       "hollowfind",
       "apihooks"
     ]
-  },
-  "volatility_3": {
-    "basic": [
-      "windows.pslist.PsList",
-      "windows.netscan.NetScan",
-      "windows.cmdline.CmdLine"
-    ],
-    "most": [
-      "windows.pslist.PsList",
-      "windows.netscan.NetScan",
-      "windows.cmdline.CmdLine",
-      "windows.psscan.PsScan",
-      "windows.pstree.PsTree",
-      "windows.registry.userassist.UserAssist",
-      "windows.svcscan.SvcScan"
-    ],
-    "all": [
-      "windows.pslist.PsList",
-      "windows.netscan.NetScan",
-      "windows.cmdline.CmdLine",
-      "windows.psscan.PsScan",
-      "windows.pstree.PsTree",
-      "windows.registry.userassist.UserAssist",
-      "windows.svcscan.SvcScan",
-      "windows.registry.hivelist.HiveList",
-      "windows.malfind.Malfind"
-    ]
   }
 }
